@@ -1,0 +1,59 @@
+#re-ai-qqq-gpt-responseLoading {
+    width: 130px;
+    height: 130px;
+    box-sizing:border-box;
+    border:1px solid rgba(255,255,255,0.4);
+    overflow:hidden;
+    letter-spacing:normal;
+    border: none;
+    z-index: 1000;
+}
+#re-ai-qqq-gpt-loader {
+    font-size: 10px;
+    width: 8em;  /* アイコンの幅 */
+    height: 8em;  /* アイコンの高さ */
+    margin: 2.4em auto;
+    text-indent: -9999em;
+    border-radius: 50%;
+    background-color: transparent;
+    /* background-color: #9be4fb; */
+    /* background: linear-gradient(to right, #50b5d3 10%, rgba(255, 255, 255, 0) 42%); */
+    background: linear-gradient(to right,#f59090,#fcd7a1,#fff9b1,#a5d4ad,#a3bce2,#a59aca,#cfa7cd) 0 / 200%;
+    position: relative;
+    animation: re-ai-qqq-gpt-loader 10s infinite linear;
+    border: none;
+}
+#re-ai-qqq-gpt-loader:before {
+    width: 25%;
+    height: 25%;
+    background-color: transparent;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    content: '';
+}
+#re-ai-qqq-gpt-loader:after {
+    background-color: #20c997; /*円内の背景色*/
+    /* background: linear-gradient(to right,#f59090,#fcd7a1,#fff9b1,#a5d4ad,#a3bce2,#a59aca,#cfa7cd) 0 / 400%; */
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: none;
+    content: '';
+}
+@keyframes re-ai-qqq-gpt-loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}

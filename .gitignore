@@ -1,0 +1,5 @@
+.*sw*
+__pycache__/
+myappenv/*
+.DS_Store
+uwsgi.log

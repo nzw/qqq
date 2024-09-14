@@ -1,0 +1,209 @@
+#re-ai-qqq-gpt-responseLoading {
+    position: fixed;
+    top: 50px;
+    animation: re-ai-qqq-gpt-spin 1s linear infinite;
+}
+@keyframes re-ai-qqq-gpt-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Common Message Style */
+.re-ai-qqq-gpt-common-message {
+    position: fixed;
+    color: #fff;
+    padding: 1px;
+    border-radius: 5px;
+    z-index: 10000;
+    font-size: 14px;
+}
+
+/* Close Button Style */
+.re-ai-qqq-gpt-common-message span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+/* Error Style */
+.re-ai-qqq-gpt-responseError {
+    background-color: #fd7272;
+}
+
+/* Notification Style */
+.re-ai-qqq-gpt-responseNotification {
+    padding: 15px;
+    top: 50px;
+    right: 15px;
+    background-color: #50d3a1;
+}
+
+/* Notification Fail Style */
+.re-ai-qqq-gpt-responseNotificationFail {
+    padding: 15px;
+    top: 0;
+    right: 15px;
+    background-color: #bfae2f;
+}
+
+/* Clipboard Element Style */
+.re-ai-qqq-gpt-clipboard {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(32, 201, 151, 0.7);
+    border: 1px solid #d5e93e;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(32, 201, 151, 0.5);
+    padding: 8px;
+    z-index: 99999;
+}
+
+/* Generate Button inside Clipboard Element */
+.re-ai-qqq-gpt-clipboard #re-ai-qqq-gpt-generate-btn {
+    margin: 3px 30px;
+    padding: 5px 7px;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: rgb(99, 194, 225);
+    cursor: pointer;
+}
+
+.re-ai-qqq-gpt-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 5px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: '5px';
+    background-color: #fd7272;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 5px;
+    cursor: pointer;
+}
+
+/* FadeOut Animation */
+.re-ai-qqq-gpt-fadeOut {
+    animation: re-ai-qqq-gpt-fadeOut 0.5s forwards;
+}
+@keyframes re-ai-qqq-gpt-fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+#re-ai-qqq-gpt-loader {
+    font-size: 20px;
+    color: #444;
+    text-align: center;
+    z-index: 100001;
+}
+
+.re-ai-qqq-gpt-support {
+    position: fixed;
+    top: 5px;
+    right: 1px;
+    background: #50d3a1;
+    border: 1px solid #d5e93e;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(32, 201, 151, 0.1);
+    padding: 8px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    z-index: 999999;
+    background-size: cover;
+    transition: height 0.1s;
+    animation: re-ai-qqq-gpt-float 3s infinite;
+}
+@keyframes re-ai-qqq-gpt-float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.re-ai-qqq-gpt-support::after {
+    background-color: rgba(32, 201, 151, 0.1);
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: none;
+    content: '';
+}
+.re-ai-qqq-gpt-support span {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    margin-top: 3px;
+}
+.re-ai-qqq-gpt-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 0 0 1px;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: #fd7272;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 10px;
+    cursor: pointer;
+}
+.re-ai-qqq-gpt-support > .re-ai-qqq-gpt-close-btn {
+    z-index: 9999999;
+}
+.re-ai-qqq-gpt-support button {
+    display: none;
+}
+
+.re-ai-qqq-gpt-support.re-ai-qqq-gpt-support-insert {
+    background: linear-gradient(to right,#f59090,#fcd7a1,#fff9b1,#a5d4ad,#a3bce2,#a59aca,#cfa7cd) 0 / 200%;
+    color: #666666;
+}
+.re-ai-qqq-gpt-support.re-ai-qqq-gpt-support-action {
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    animation: none;
+}
+.re-ai-qqq-gpt-support.re-ai-qqq-gpt-support-action span {
+    max-width: none;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+}
+.re-ai-qqq-gpt-support.re-ai-qqq-gpt-support-action button {
+    display: inline;
+}

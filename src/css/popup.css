@@ -1,0 +1,555 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    max-width: 800px;
+    max-height: 600px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.container {
+    padding: 20px 20px 0 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.settings-icon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    transition: all 0.3s ease;
+}
+
+.settings-icon:hover {
+    filter: brightness(1.2); /* 明るくする */
+    box-shadow: 1px 1px 2px #a3b1c6, -1px -1px 2px #ffffff; /* 軽い影をつける */
+}
+
+.settings-icon:active {
+    filter: brightness(0.9); /* 少し暗くする */
+    box-shadow: inset 1px 1px 2px #a3b1c6, inset -1px -1px 2px #ffffff; /* 押し込まれた感じを出すための内部シャドウ */
+}
+
+.input-section, .output-section {
+    position: relative;
+    margin-bottom: 20px;
+    max-width: 740px;
+}
+
+.config-select-container {
+    display: flex;
+    margin: 0 0 5px;
+    padding: 10px 0;
+    justify-content: center;
+    flex-grow: 1; /* セレクトボックスのコンテナが残りのスペースを埋める */
+    gap: 5px; /* セレクトボックス間のスペースを5pxに設定 */
+}
+.center-action {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 720px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: #f9fcfd;
+    box-shadow: inset 1px 1px 2px #606060, inset 1px 1px 2px #fff;
+    resize: none;
+    height: 135px;
+    font-size: 12px;
+    transition: height 0.2s;
+}
+#resultTextArea {
+    background: #f8f6f6;
+}
+
+button, select {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 1px 1px 2px #a3b1c6, -1px -1px 2px #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 11px;
+}
+select {
+    background: #e3e3e3;
+    color: #878787;
+    width: 150px;
+    height: 40px;
+    margin: 5px;
+    text-align: center;
+}
+
+.font-select,#textDLButton {
+    width: 70px;
+    height: 30px;
+    padding: 3px;
+    font-size: 12px;
+    margin: -4px 10px 0 0;
+}
+#textDLButton {
+    width: 80px; 
+}
+
+#promptSelectBox3 {
+    width: 170px;
+    background: #e4e7ed;
+}
+
+button {
+    background: #50b5d3;
+    color: #fff;
+}
+
+#promptCopy {
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 9px;
+    color: #a7a6a6;
+    background-color: #e4e7ed;
+}
+
+.subActionButton {
+    background-color: #ebebeb;
+    color: #9d9d9d;
+    margin-right: 5px;
+}
+.subActionButton  > span {
+    font-size: 9px;
+}
+
+.top-bar {
+    justify-content: flex-start;
+}
+
+.popup-button,
+.api-button {
+    margin-right: auto;
+    background-color: #e2e6ec;
+    color: #50b5d3;
+    /* box-shadow: inset -4px -4px 8px #a3b1c6, inset 2px 2px 4px #50b5d3; */
+    box-shadow: inset 2px 2px 4px #acb7c8, inset -2px -2px 4px #fff;
+    /* background: #50d3a1; */
+}
+
+.popup-button-off,
+.api-button-off {
+    background: #444;
+    color: #8b8b8b;
+    box-shadow: inset 4px 4px 8px #2f2f2f, inset -4px -4px 8px #909090;
+}
+
+.popup-button {
+    font-size: 11px;
+}
+
+.disabled {
+    box-shadow: inset 1px 1px 2px #2f2f2f, inset -1px -1px 2px #5f5f5f;
+    background: #444;
+    color: #8b8b8b;
+}
+
+button.generate-button.disabled {
+    background: #444;
+}
+
+.config-select-container.disabled select {
+    background: #444;
+    color: #8b8b8b;
+}
+button:hover {
+    box-shadow: inset 1px 1px 2px #a3b1c6, inset -1px -1px 2px #ffffff;
+}
+
+button:active {
+    box-shadow: none;
+}
+
+button.generate-button {
+    width: 100px;
+}
+
+.api-button, .popup-button, .config-select, .clear-button {
+    margin: -8px 10px -5px 0;
+}
+
+.clear-button {
+    padding: 7px;
+    font-size: 10px;
+    background: #e46f6f;
+    margin-top: -10px;
+}
+
+.word-count {
+    margin-top: -15px;
+    color: #878787;
+}
+
+.copy-button {
+    position: absolute;
+    top: -20px;
+    right: -5px;
+    background-size: contain;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#copyInputText {
+    background-color: #f0f0f0;
+}
+#copyResultText {
+    color: #ffffff;
+    background-color: #acacac;
+}
+
+.copy-button:before {
+    font-size: 9px;
+    content: "Copy";
+    display: flex;
+    color: #a3b1c6;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+#copyResultText.copy-button:before {
+    color: #e3e7eb;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.tooltip-copy {
+    display: inline-block;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.tooltip-bottom-text,
+.tooltip-left-text,
+.tooltip-text {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+
+.tooltip-left-text {
+    left: -50px;
+    bottom: 10px;
+    z-index: 999;
+}
+
+.tooltip-bottom-text {
+    left: 150%;
+    bottom: 10px;
+    z-index: 999;
+}
+
+.tooltip-copy:hover .tooltip-left-text,
+.tooltip-container:hover .tooltip-bottom-text,
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.output-action-bar {
+    padding-bottom: 20px;
+}
+
+.input-container,
+.output-container {
+    position: relative;
+    display: inline-block;
+}
+
+.centered-button {
+    position: absolute;
+    color: #9b9b9b;
+    padding: 0 10px 0;
+    font-size: 8px;
+    left: 50%;
+    bottom: 2px;
+    width: 100%;
+    height: 8px;
+    transform: translateX(-50%);
+}
+
+.input-container {
+    background-color: #f5f3f3;
+}
+.output-container {
+    background-color: #dce0e4;
+}
+
+.output-section {
+    position: relative;
+}
+
+/**********************/
+.loader1,
+.loader1:before,
+.loader1:after {
+    position: absolute;
+    top: 18%;
+    left: 48%;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    animation-fill-mode: both;
+    animation: load7 1.8s infinite ease-in-out;
+}
+.loader1 {
+    /* color: #50b5d3; */
+    color: #fff; 
+    font-size: 11px;
+    margin: auto;
+    text-indent: -9999em;
+    transform: translateZ(0);
+    animation-delay: -0.16s;
+
+    /* 主要な円の色 */
+    box-shadow: 0 2.5em 0 -1.3em rgb(228, 111, 111);
+}
+.loader1:before,
+.loader1:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+.loader1:before {
+    left: -3.5em;
+    animation-delay: -0.32s;
+
+    /* 左の円の色 */
+    box-shadow: 0 2.5em 0 -1.3em rgb(80, 211, 161);
+}
+.loader1:after {
+    left: 3.5em;
+
+    /* 右の円の色 */
+    box-shadow: 0 2.5em 0 -1.3em #50b5d3;
+}
+
+@keyframes load7 {
+    0%, 80%, 100% {
+        /* box-shadow: 0 2.5em 0 -1.3em; */
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+.loader2,
+.loader2:before,
+.loader2:after {
+  background: #ffffff;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 0.5em;
+  height: 1em;
+}
+.loader2 {
+  color: #ffffff;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  font-size: 11px;
+  transform: translateZ(0);
+  animation-delay: -0.25s;
+}
+.loader2:before,
+.loader2:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader2:before {
+  left: -1em;
+  animation-delay: -0.5s;
+}
+.loader2:after {
+  left: 1em;
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 1.em;
+  }
+  40% {
+    box-shadow: 0 -1.5em;
+    height: 1.5em;
+    background: rgb(80, 181, 211, 0.5);
+  }
+}
+
+
+.loader3,
+.loader3:before,
+.loader3:after {
+  border-radius: 50%;
+}
+.loader3 {
+  color: #50b5d3;
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: absolute;
+  top: -45px;
+  left: 43%;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  transform: translateZ(0);
+}
+.loader3:before,
+.loader3:after {
+  position: absolute;
+  content: '';
+}
+.loader3:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #dce0e4;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  transform-origin: 5.1em 5.1em;
+  animation: load2 2s infinite ease 1.5s;
+}
+.loader3:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #dce0e4;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 4.9em;
+  transform-origin: 0.1em 5.1em;
+  animation: load2 2s infinite ease;
+}
+@keyframes load2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.usePromptCheck {
+    display: flex;
+    justify-content:center;
+}
+/* チェックボックスのデフォルトスタイルを非表示にする */
+label > input[type="checkbox"] {
+    display: none;
+}
+
+/* チェックボックスのカスタムスタイル */
+label > input[type="checkbox"] + span {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+/* チェックボックスのカスタムボックス */
+label > input[type="checkbox"] + span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aaaaaa;
+    background-color: #e9ecf1;
+}
+
+/* チェックボックスの場合、border-radiusを変更 */
+label > input[type="checkbox"] + span::before {
+    border-radius: 5px;
+}
+/* チェックボックスがチェックされた時のスタイル */
+label > input[type="checkbox"]:checked + span::before {
+    background-color: #50b5d3;
+    border: 2px solid #9d9c9c;
+}
+
+
+label > input[type="checkbox"]:checked:disabled + span::before {
+    background-color: #939596;
+    border: 2px solid #949393;
+}
+
+/* ホバー時のスタイル */
+label:hover > input[type="checkbox"] + span::before {
+    border-color: #aed7e3;
+}
+
+/* フォーカス時のスタイル（キーボード操作時の視覚的フィードバック） */
+label > input[type="checkbox"]:focus + span::before {
+    outline: -webkit-focus-ring-color auto 5px;
+}
+/* チェックボックスがチェックされたときのチェックマークのスタイル */
+label > input[type="checkbox"]:checked + span::after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    top: 20%;
+    transform: translate(-50%, -50%) rotate(-45deg) rotateY(180deg);;
+    width: 15px;
+    height: 6px;
+    border: 5px solid #6b7d82;
+    border-top: none;
+    border-left: none;
+}
+/*heart*/
+/* .cp-spinner{width:48px;height:48px;display:inline-block;box-sizing:border-box;position:absolute; top:47px;left:47%;}.cp-heart{animation:cp-heart-animate 2s ease-in-out infinite}.cp-heart:before{border-radius:12px 12px 0 0;content:" ";width:24px;height:35px;display:inline-block;box-sizing:border-box;background-color:#fff;transform:rotate(-45deg);position:absolute;top:0;left:8px}.cp-heart:after{border-radius:12px 12px 0 0;content:" ";width:24px;height:35px;display:inline-block;box-sizing:border-box;background-color:#fff;transform:rotate(45deg);position:absolute;top:0;right:8px}@keyframes cp-heart-animate{0%{transform:scale(.9);transform-origin:center}15%{transform:scale(1.4);transform-origin:center}30%{transform:scale(.9);transform-origin:center}45%{transform:scale(1.4);transform-origin:center}100%,60%{transform:scale(.9);transform-origin:center}} */

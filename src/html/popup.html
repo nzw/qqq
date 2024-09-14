@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Quick Query Question</title>
+    <link rel="stylesheet" href="../css/popup.css">
+</head>
+<body>
+<div class="container">
+    <div class="top-bar">
+        <button id="setApiType" class="api-button">GPT-Key</button>
+        <!-- <button id="setPopUp" class="popup-button tooltip-container subActionButton">
+            PopUp:ON<span class="tooltip-bottom-text">コンテンツ内にポップアップを常駐させるための ON/OFF ボタン</span>
+        </button> -->
+        <select id="fontSelect" class="font-select">
+            <option value="7">7px</option>
+            <option value="8">8px</option>
+            <option value="9">9px</option>
+            <option value="10">10px</option>
+            <option value="11">11px</option>
+            <option value="12">12px</option>
+            <option value="13">13px</option>
+            <option value="14">14px</option>
+            <option value="15">15px</option>
+            <option value="16">16px</option>
+            <option value="17">17px</option>
+            <option value="18">18px</option>
+        </select>
+        <button id="textDLButton" class="tooltip-container subActionButton">DL text file
+            <span class="tooltip-bottom-text">テキストファイルに保存</span>
+        </button>
+        <img src="../images/set.png" alt="Settings" id="settingsIcon" class="settings-icon"/>
+    </div>
+
+    <div class="input-section">
+        <textarea id="inputTextArea"></textarea>
+        <button id="inputScaleButton" class="input-container centered-button">▼</button>
+        <button id="copyInputText" class="copy-button tooltip-copy">
+            <span class="tooltip-left-text">テキストをコピーします</span>
+        </button>
+    </div>
+
+    <div class="action-bar input-action-bar">
+        <button class="clear-button" id="clearInputBtn">クリア</button>
+        <div class="word-count" id="inputWordCount">0文字</div>
+    </div>
+
+    <div class="config-select-container">
+        <select id="promptSelectBox" class="config-select"></select>
+        <!--
+        <select id="promptSelectBox2" class="config-select">
+            <option value="none">翻訳不要</option>
+            <option value="en">英語に翻訳</option>
+            <option value="ja">日本語に翻訳</option>
+            <option value="vi">ベトナム語に翻訳</option>
+            <option value="zh">中国語(簡体字)に翻訳</option>
+            <option value="zh2">中国語（繁体）に翻訳</option>
+            <option value="ko">韓国語に翻訳</option>
+        </select>
+        -->
+        <button id="promptInsert" class="tooltip-container subActionButton">
+            挿入<span class="tooltip-text">プロンプトをテキストを文の先頭に挿入します</span>
+        </button>
+        <!--
+        <button id="promptCopy" class="tooltip-container">
+            Copy<span class="tooltip-text">プロンプトをコピーします</span>
+        </button>
+        -->
+        <button id="textInsert" class="tooltip-container subActionButton">
+            下から上に移動<span class="tooltip-text">上段のテキストボックスに下段のテキストを反映します</span>
+        </button>
+    </div>
+    <!--
+    <label class="usePromptCheck">
+        <input type="checkbox" id="usePromptCheck" class="" checked /><span></span>生成ボタンを押下時、文頭にプロンプトを挿入する
+    </label>
+    -->
+    <div class="center-action">
+        <button id="generateButton" class="generate-button disabled">生成</button>
+    </div>
+
+    <div class="output-section">
+        <div id="loader" class=""></div>
+        <textarea id="resultTextArea"></textarea>
+        <button id="resultScaleButton" class="output-container centered-button">▼</button>
+        <button id="copyResultText" class="copy-button tooltip-copy">
+            <span class="tooltip-left-text">テキストをコピーします</span>
+        </button>
+    </div>
+
+    <div class="action-bar output-action-bar">
+        <button class="clear-button" id="clearResultBtn">クリア</button>
+        <div class="word-count" id="resultWordCount">0文字</div>
+    </div>
+
+    <script type="module" src="../js/popup.js"></script>
+    <!--<script type="module" src="js/manager.js"></script>-->
+</div>
+</body>
+</html>

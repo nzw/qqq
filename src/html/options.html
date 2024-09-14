@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Query Question 設定</title>
+    <link rel="stylesheet" href="../css/options.css">
+</head>
+<body>
+    <form id="settingsForm">
+        <div class="button-container">
+            <a id="chromeStore" href="https://chromewebstore.google.com/detail/quick-query-question/gcnknkigeobkiihifkfeeklkpkaflgil?hl=ja" target="_blank" style="font-size: 11px; color: #999;">
+                <img src="../images/chrome_store.png" width="20" height="20" alt="web store"> 正常に動作しない時は、初期化してください
+            </a>
+            <button id="saveBtn2" class="saveBtn">保存</button>
+        </div>
+        <h3>1. 自身のChat GPTのAPIキー、または自身のAPIサーバーの設定が可能です。</h3>
+        <div class="api-div">
+            <label>
+                <input type="radio" name="settingType" value="gptKey" checked><span></span>GPT-APIキー
+            </label>
+            <input type="password" id="gptKey" placeholder="APIキーを入力">
+        </div>
+        <div class="api-div">
+            <label>
+                <input type="radio" name="settingType" value="server"><span></span> URL設定
+            </label>
+            <br />
+            <div class="custom-form">
+                <select id="methodSelect" class="custom-select">
+                    <option value="post">POST</option>
+                    <!-- <option value="get">GET</option> -->
+                </select>
+                <input type="text" id="urlInput" placeholder="https://から始まるURLを入力してください" disabled>
+            </div>
+            <div class="custom-form">
+                <select id="methodSelect2" class="custom-select">
+                    <option value="stream">STREAM</option>
+                </select>
+                <input type="text" id="urlInput2" placeholder="wss://から始まるURLを入力してください" disabled>
+            </div>
+            <div id="headerControls" class="header-controls">
+                <div id="headersContainer"></div>
+                <button type="button" id="addHeaderBtn">BearerTokenキーを使う</button>
+                <button type="button" id="removeHeaderBtn">削除</button>
+                <span id="headerError" class="error-message"></span>
+            </div>
+        </div>
+        <h3>2. 以下、プロンプトの設定が可能です。</h3>
+        <div id="prompt1" class="prompt">
+            <label><input type="checkbox" disabled><span></span>プロンプト1 (※変更不可)</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20" disabled="" style="height:10px" class="disabled-input">
+            <textarea placeholder="100文字以内で入力してください" maxlength="100" style="height:20px;" disabled="" class="disabled-input"></textarea>
+        </div>
+        <div id="prompt2" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト2</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt3" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト3</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt4" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト4</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt5" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト5</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt6" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト6</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt7" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト7</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt8" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト8</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt9" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト9</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt10" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト10</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+		<div id="prompt11" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト11</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+		<div id="prompt12" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト12</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt13" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト13</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt14" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト14</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt15" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト15</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt16" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト16</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt17" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト17</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt18" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト18</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt19" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト19</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div id="prompt20" class="prompt">
+            <label><input type="checkbox"><span></span>プロンプト20</label>
+            <input type="text" placeholder="20文字以内で入力してください" maxlength="20">
+            <textarea placeholder="プロンプトを入力してください"></textarea>
+        </div>
+        <div class="button-container">
+            <button type="button" id="saveBtn" class="saveBtn">保存</button>
+        </div>
+    </form>
+    <script type="module" src="../js/options.js"></script>
+</body>
+</html>

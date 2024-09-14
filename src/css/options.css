@@ -1,0 +1,360 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    font-size: 18px;
+    color: #5f5e5e;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+form#settingsForm {
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #efefef;
+    padding: 20px;
+    box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #fff;
+    border-radius: 10px;
+}
+
+/* ラジオボタンとチェックボックスのデフォルトスタイルを非表示にする */
+label > input[type="radio"], label > input[type="checkbox"] {
+    display: none;
+}
+
+/* ラジオボタンとチェックボックスのカスタムスタイル */
+label > input[type="radio"] + span, label > input[type="checkbox"] + span {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+/* ラジオボタンとチェックボックスのカスタムボックス */
+label > input[type="radio"] + span::before, label > input[type="checkbox"] + span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #5f5e5e;
+    background-color: #e9ecf1;
+    border-radius: 50%; /* ラジオボタンの場合 */
+}
+
+/* チェックボックスの場合、border-radiusを変更 */
+label > input[type="checkbox"] + span::before {
+    border-radius: 5px;
+}
+
+/* ラジオボタンがチェックされた時のスタイル */
+label > input[type="radio"]:checked + span::before {
+    background-color: #50b5d3;
+    border: 2px solid #9d9c9c;
+}
+/* チェックボックスがチェックされた時のスタイル */
+label > input[type="checkbox"]:checked + span::before {
+    background-color: #50b5d3;
+    border: 2px solid #9d9c9c;
+}
+
+label > input[type="checkbox"]:checked:disabled + span::before {
+    background-color: #939596;
+    border: 2px solid #2d2d2d;
+}
+
+/* ホバー時のスタイル */
+label:hover > input[type="radio"] + span::before,
+label:hover > input[type="checkbox"] + span::before {
+    border-color: #50b5d3;
+}
+
+/* フォーカス時のスタイル（キーボード操作時の視覚的フィードバック） */
+label > input[type="radio"]:focus + span::before,
+label > input[type="checkbox"]:focus + span::before {
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+/* ラジオボタンがチェックされたときの内側のドットのスタイル */
+label > input[type="radio"]:checked + span::after {
+    content: "";
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: #6b7d82;
+    border-radius: 50%;
+}
+
+/* チェックボックスがチェックされたときのチェックマークのスタイル */
+label > input[type="checkbox"]:checked + span::after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    top: 20%;
+    transform: translate(-50%, -50%) rotate(-45deg) rotateY(180deg);;
+    width: 15px;
+    height: 6px;
+    border: 5px solid #6b7d82;
+    border-top: none;
+    border-left: none;
+}
+
+textarea,
+input[type="password"],
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 15px auto;
+    width: 97%;
+    outline: none;
+}
+textarea {
+    height: 100px;
+    margin: 0px auto 10px;
+}
+
+textarea:disabled,
+input[type="password"]:disabled,
+input[type="text"]:disabled {
+    background: #444;
+    color: #8b8b8b;
+    cursor: not-allowed;
+    border: 1px solid #c0c0c0;
+    opacity: 0.7;
+    box-shadow: inset 4px 4px 8px #2f2f2f, inset -4px -4px 8px #5f5f5f;
+}
+
+textarea::placeholder,
+input[type="password"]::placeholder,
+input[type="text"]::placeholder {
+    color: rgb(174, 174, 174);
+    opacity: 0.6;
+}
+
+textarea:disabled::placeholder,
+input[type="password"]:disabled::placeholder,
+input[type="text"]:disabled::placeholder {
+    color: rgb(120, 120, 120);
+    opacity: 1;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+button#addHeaderBtn,
+button#removeHeaderBtn {
+    padding: 8px 12px;
+}
+
+span.error-message {
+    color: #e46f6f;
+    font-size: 12px;
+}
+
+.prompt {
+    margin-bottom: 20px;
+    padding: 20px 10px 10px;
+    background-color: #efefef;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #c1c1c1, -2px -2px 6px #fff;
+}
+#urlInput,
+#urlInput2 {
+    margin: 15px 0;
+}
+
+.saveBtn {
+    display: block;
+    margin: 30px auto 10px;
+    padding: 10px 30px;
+}
+
+.header-controls {
+    display: none;
+}
+
+.input-error {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+} 
+.message-element {
+    position: fixed;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10000;
+    font-size: 14px;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.message-error {
+    background-color: #fd7272;
+}
+
+.message-default {
+    background-color: #20c997;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    color: #fff;
+    font-size: 10px;
+    background-color: #20c997;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.saveBtn {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: #50b5d3;
+    color: #fff;
+    box-shadow: 1px 1px 2px #c1c1c1, -1px -1px 2px #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#saveBtn {
+    width: 100px;
+}
+
+#saveBtn2 {
+    margin: 5px 0 10px 0;
+}
+
+.saveBtn.disabled {
+    background: #444;
+}
+
+.saveBtn:hover {
+    box-shadow: inset 8px 8px 16px #c1c1c1, inset -8px -8px 16px #fff;
+}
+
+.saveBtn:active {
+    box-shadow: none;
+}
+
+.disabled {
+    box-shadow: inset 4px 4px 8px #c1c1c1, inset -4px -4px 8px #5f5f5f;
+    background: #444;
+    color: #8b8b8b;
+}
+
+.api-div {
+    margin: 20px 20px 0 15px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;  /* ボタン間のスペースを追加 */
+}
+.question-button {
+    /* 以下は既存のスタイル */
+    font-size: 14px;
+    text-align: center;
+    line-height: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: #666565;
+    box-shadow: 2px 2px 4px #eaeaea, -2px -2px 4px #fff;
+    background-color: #ecf371;
+    color: #000000;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.question-button:hover {
+    background-color: #fac980;
+}
+
+.custom-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin: 0 0 -15px;
+    padding: 5px;
+    border: none;
+}
+
+.custom-select {
+    background-color: #50b5d3;
+    color: #fff;
+    border: none;
+    border: 1px solid #d8d5d5;
+    padding: 5px 10px;
+    margin-right: 0;
+    height: 37px;
+    font-size: 12px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 10px 0 0 10px;
+}
+
+.custom-select:disabled {
+    background-color: #444;
+    color: #8b8b8b;
+    border: none;
+}
+
+#gptKey {
+    margin: 15px 0 15px 10px;
+}
+
+#urlInput,
+#urlInput2 {
+    border-radius: 0 10px 10px 0;
+    width: 100%
+}
+.header-controls {
+    flex: 1;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+
+.password-container {
+    position: relative;
+  }
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
